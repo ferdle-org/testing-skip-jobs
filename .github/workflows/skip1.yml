@@ -1,4 +1,4 @@
-name: Reusable Workflow 1
+name: Reusable Skip1 Workflow
 
 on:
   workflow_call:
@@ -16,5 +16,31 @@ jobs:
   skip1-job:
     runs-on: ubuntu-latest
     environment: ${{ inputs.github_repo_environment }}
+    
+    # Define outputs for this job
+    outputs:
+      GITHUB_REPO_ENVIRONMENT: ${{ steps.set-env.outputs.GITHUB_REPO_ENVIRONMENT }}
+      TRIBE_NAME: ${{ steps.set-tribe.outputs.TRIBE_NAME }}
+      AWS_ACCOUNT_ID: ${{ steps.set-account-id.outputs.AWS_ACCOUNT_ID }}
+      AWS_REGION: ${{ steps.set-region.outputs.AWS_REGION }}
+
     steps:
-      - run: echo "Running skip1 workflow with config ${{ inputs.svc_config_file_name }}"
+      - name: Set Output Variables
+        id: set-env
+        run: |
+          echo "GITHUB_REPO_ENVIRONMENT=${{ inputs.github_repo_environment }}" >> $GITHUB_OUTPUT
+
+      - name: Extract Tribe Name (Example)
+        id: set-tribe
+        run: |
+          echo "TRIBE_NAME=MyTribe" >> $GITHUB_OUTPUT  # Replace with real logic
+
+      - name: Extract AWS Account ID (Example)
+        id: set-account-id
+        run: |
+          echo "AWS_ACCOUNT_ID=123456789012" >> $GITHUB_OUTPUT  # Replace with real logic
+
+      - name: Extract AWS Region (Example)
+        id: set-region
+        run: |
+          echo "AWS_REGION=ap-southeast-2" >> $GITHUB_OUTPUT  # Replace with real logic
