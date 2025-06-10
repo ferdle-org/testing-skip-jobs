@@ -43,5 +43,3 @@ jobs:
     uses: ./.github/workflows/skip2.yml
     with:
       GITHUB_REPO_ENVIRONMENT: ${{ needs.job3.outputs.GITHUB_REPO_ENVIRONMENT }}
-      AWS_ACCOUNT_ID: ${{ needs.job3.outputs.AWS_ACCOUNT_ID }}
-      AWS_REGION: ${{ needs.job3.outputs.AWS_REGION }}
