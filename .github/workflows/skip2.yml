@@ -1,0 +1,10 @@
+name: Reusable Workflow 2
+
+on:
+  workflow_dispatch:
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hello from Job1"
