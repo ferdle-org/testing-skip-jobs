@@ -32,6 +32,9 @@ jobs:
       config_repo: ${{ needs.setup-build.outputs.SERVICE_SETTINGS_REPO }}
       config_repo_ref: ${{ needs.setup-build.outputs.SERVICE_SETTINGS_REPO_REF }}
       svc_config_file_name: ${{ needs.setup-build.outputs.SERVICE_SETTING_JSON_FILE }}
+    
+    # Define outputs for the entire job (to be used by job4)
+    secrets: inherit
 
   job4:
     needs: job3
