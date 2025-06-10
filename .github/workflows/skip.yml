@@ -37,7 +37,7 @@ jobs:
     needs: job3
     if: needs.job2.outputs.another_fake_output == 'true'  # This condition will never be met
     name: Deploy SKIP_AU
-    uses: ferdle-org/testing-skip-jobs/.github/workflows/skip2.yml@main
+    uses: ./.github/workflows/skip2.yml
     with:
       GITHUB_REPO_ENVIRONMENT: ${{ needs.setup-Production_AU.outputs.GITHUB_REPO_ENVIRONMENT }}
       TRIBE_NAME: ${{ fromJSON(needs.setup-aws.outputs.SETTINGS).TRIBE_NAME }}
