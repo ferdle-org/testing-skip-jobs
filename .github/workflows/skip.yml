@@ -26,7 +26,7 @@ jobs:
   job3:
     needs: job2
     if: needs.job1.outputs.fake_output == 'true'  # This condition will never be met
-    uses: ferdle-org/testing-skip-jobs/.github/workflows/skip1.yml@main
+    uses: ./.github/workflows/skip1.yml
     with:
       github_repo_environment: PRODUCTION_AU
       config_repo: ${{ needs.setup-build.outputs.SERVICE_SETTINGS_REPO }}
