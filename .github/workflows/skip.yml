@@ -42,4 +42,4 @@ jobs:
     name: Deploy SKIP_AU
     uses: ./.github/workflows/skip2.yml
     with:
-      GITHUB_REPO_ENVIRONMENT: ${{ needs.job3.outputs.GITHUB_REPO_ENVIRONMENT }}
+      GITHUB_REPO_ENVIRONMENT: ${{ needs.job3.outputs.AWS }}
