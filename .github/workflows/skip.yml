@@ -42,40 +42,7 @@ jobs:
     name: Deploy SKIP_AU
     uses: ./.github/workflows/skip2.yml
     with:
-      GITHUB_REPO_ENVIRONMENT: ${{ needs.setup-Production_AU.outputs.GITHUB_REPO_ENVIRONMENT }}
-      TRIBE_NAME: ${{ fromJSON(needs.setup-aws.outputs.SETTINGS).TRIBE_NAME }}
-      AWS_ACCOUNT_ID: ${{ fromJSON(needs.setup-aws.outputs.SETTINGS).AWS_ACCOUNT_ID_PRODUCTION }}
-      AWS_REGION: ${{ fromJSON(needs.setup-aws.outputs.SETTINGS).AWS_REGION_AU }}
-      ECS_CLUSTER_NAME: ${{ fromJSON(needs.setup-aws.outputs.SETTINGS).ECS_CLUSTER_NAME_AU_PRODUCTION }}
-      AWS_ENVIRONMENT: ${{ fromJSON(needs.setup-aws.outputs.SETTINGS).ENVIRONMENT_PRODUCTION }}
-      ASPNETCORE_ENVIRONMENT: ${{ fromJSON(needs.setup-aws.outputs.SETTINGS).ASPNETCORE_ENVIRONMENT_PRODUCTION }}
-      APPENVIRONMENT: NEW_RELIC_LABELS=Region:${{ fromJSON(needs.setup-aws.outputs.SETTINGS).AWS_REGION_AU }};Environment:${{ fromJSON(needs.setup-aws.outputs.SETTINGS).ENVIRONMENT_PRODUCTION }}
-      DOCKER_IMAGE_URL: ${{ needs.build.outputs.published_image_path }}
-      DOCKER_LABEL_CREATOR: ${{ github.actor }}
-      LB_SCHEME: ${{ fromJSON(needs.setup-Production_AU.outputs.SETTINGS).LB_SCHEME }}
-      APP_NAME: ${{ fromJSON(needs.setup-application.outputs.SETTINGS).APP_NAME }}
-      ECS_CPU_UNITS: ${{ fromJSON(needs.setup-Production_AU.outputs.SETTINGS).ECS_CPU_UNITS }}
-      ECS_MEMORY: ${{ fromJSON(needs.setup-Production_AU.outputs.SETTINGS).ECS_MEMORY }}
-      ECS_MEMORY_RESERVATION: ${{ fromJSON(needs.setup-Production_AU.outputs.SETTINGS).ECS_MEMORY_RESERVATION }}
-      ECS_TASKROLE_ARN: ${{ fromJSON(needs.setup-Production_AU.outputs.SETTINGS).ECS_TASKROLE_ARN }}
-      ECS_TASK_COUNT: ${{ fromJSON(needs.setup-Production_AU.outputs.SETTINGS).ECS_TASK_COUNT }}
-      ECS_APP_PORT_INT: ${{ fromJSON(needs.setup-Production_AU.outputs.SETTINGS).ECS_APP_PORT_INT }}
-      ECS_SERVICE_SCALING_AVG_CPU: ${{ fromJSON(needs.setup-Production_AU.outputs.SETTINGS).ECS_SERVICE_SCALING_AVG_CPU }}
-      ECS_SERVICE_SCALING_AVG_MEM: ${{ fromJSON(needs.setup-Production_AU.outputs.SETTINGS).ECS_SERVICE_SCALING_AVG_MEM }}
-      ECS_SERVICE_SCALING_AVG_CPU_TARGET_VALUE: ${{ fromJSON(needs.setup-Production_AU.outputs.SETTINGS).ECS_SERVICE_SCALING_AVG_CPU_TARGET_VALUE }}
-      ECS_SERVICE_SCALING_AVG_MEM_TARGET_VALUE: ${{ fromJSON(needs.setup-Production_AU.outputs.SETTINGS).ECS_SERVICE_SCALING_AVG_MEM_TARGET_VALUE }}
-      ECS_SERVICE_SCALING_MIN_CAPACITY: ${{ fromJSON(needs.setup-Production_AU.outputs.SETTINGS).ECS_SERVICE_SCALING_MIN_CAPACITY }}
-      ECS_SERVICE_SCALING_MAX_CAPACITY: ${{ fromJSON(needs.setup-Production_AU.outputs.SETTINGS).ECS_SERVICE_SCALING_MAX_CAPACITY }}
-      COPY_FILE_TO_S3: ${{ fromJSON(needs.setup-Production_AU.outputs.SETTINGS).COPY_FILE_TO_S3 }}
-      S3_COPY_SOURCE: ${{ fromJSON(needs.setup-Production_AU.outputs.SETTINGS).S3_COPY_SOURCE }}
-      S3_COPY_DESTINATION: ${{ fromJSON(needs.setup-Production_AU.outputs.SETTINGS).S3_COPY_DESTINATION }}
-      RETAIL_HAPROXY_VERTICAL: ${{ fromJSON(needs.setup-Production_AU.outputs.SETTINGS).RETAIL_HAPROXY_VERTICAL }}
-      UPDATE_ALB_TARGET_GROUP: ${{ fromJSON(needs.setup-Production_AU.outputs.SETTINGS).UPDATE_ALB_TARGET_GROUP }}
-      VPC_ID: ${{ fromJSON(needs.setup-Production_AU.outputs.SETTINGS).VPC_ID }}
-      ALB_NAME: ${{ fromJSON(needs.setup-Production_AU.outputs.SETTINGS).ALB_NAME }}
-      TARGET_GROUP_NAME: ${{ fromJSON(needs.setup-Production_AU.outputs.SETTINGS).TARGET_GROUP_NAME }}
-      HEALTH_CHECK_ENABLED: ${{ fromJSON(needs.setup-Production_AU.outputs.SETTINGS).HEALTH_CHECK_ENABLED }}
-      HEALTH_CHECK_PATH: ${{ fromJSON(needs.setup-Production_AU.outputs.SETTINGS).HEALTH_CHECK_PATH }}
-      CREATE_ROUTE53_RECORD: ${{ fromJSON(needs.setup-Production_AU.outputs.SETTINGS).CREATE_ROUTE53_RECORD }}
-      ECS_TASKDEF_TAGS: ${{ fromJSON(needs.setup-application.outputs.SETTINGS).AWS_CUSTOM_TAGS }}
-      ECS_SERVICE_TAGS: ${{ fromJSON(needs.setup-application.outputs.SETTINGS).AWS_CUSTOM_TAGS }}
+      GITHUB_REPO_ENVIRONMENT: ${{ needs.job3.outputs.GITHUB_REPO_ENVIRONMENT }}
+      TRIBE_NAME: ${{ needs.job3.outputs.TRIBE_NAME }}
+      AWS_ACCOUNT_ID: ${{ needs.job3.outputs.AWS_ACCOUNT_ID }}
+      AWS_REGION: ${{ needs.job3.outputs.AWS_REGION }}
