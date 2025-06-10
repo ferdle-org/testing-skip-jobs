@@ -1,10 +1,20 @@
 name: Reusable Workflow 2
 
 on:
-  workflow_dispatch:
+  workflow_call:
+    inputs:
+      github_repo_environment:
+        type: string
+      config_repo:
+        type: string
+      config_repo_ref:
+        type: string
+      svc_config_file_name:
+        type: string
 
 jobs:
-  job1:
+  skip1-job:
     runs-on: ubuntu-latest
+    environment: ${{ inputs.github_repo_environment }}
     steps:
-      - run: echo "Hello from Job1"
+      - run: echo "Running skip1 workflow with config ${{ inputs.svc_config_file_name }}"
